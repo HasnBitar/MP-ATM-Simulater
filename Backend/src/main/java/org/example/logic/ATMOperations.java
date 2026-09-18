@@ -16,7 +16,7 @@ public class ATMOperations {
         logger.warning("Customer is null");
         return 0.0;
     }
-    public boolean Deposit(double amount, Customer customer) {
+    public boolean deposit(double amount, Customer customer) {
         if (customer != null) {
             if (amount > 0) {
                 logger.info("Depositing");
@@ -29,8 +29,12 @@ public class ATMOperations {
         logger.warning("Customer is null");
         return false;
     }
-    public boolean Withdraw(double amount, Customer customer) {
+    public boolean withdraw(double amount, Customer customer) {
         if (customer != null) {
+            if (amount <= 0) {
+                logger.warning("no amount");
+                return false;
+            }
             if (customer.getBalance() < amount) {
                 logger.warning("not enough balance");
                 return false;
@@ -42,7 +46,7 @@ public class ATMOperations {
         logger.warning("Customer is null");
         return false;
     }
-    public boolean Transfer(Customer sourceCustomer, Customer targetCustomer, double amount) {
+    public boolean transfer(Customer sourceCustomer, Customer targetCustomer, double amount) {
         if (sourceCustomer == null || targetCustomer == null) {
             logger.warning("One of the Customers or Both are missing");
             return false;
@@ -52,8 +56,8 @@ public class ATMOperations {
             return false;
         }
         logger.info(String.format("Transferring %.2f", amount));
-        Withdraw(amount, sourceCustomer);
-        Deposit(amount, targetCustomer);
+        withdraw(amount, sourceCustomer);
+        deposit(amount, targetCustomer);
         return true;
     }
 
