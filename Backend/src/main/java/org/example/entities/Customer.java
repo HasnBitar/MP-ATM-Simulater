@@ -8,7 +8,7 @@ public class Customer {
     private String password;
     private String phoneNumber;
     private String street;
-    private int hausNr;
+    private int housNr;
     private String postalCode;
     private String city;
     private double balance;
@@ -22,7 +22,7 @@ public class Customer {
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.street = street;
-        this.hausNr = hausNr;
+        this.housNr = hausNr;
         this.postalCode = postalCode;
         this.city = city;
         this.balance = balance;
@@ -69,11 +69,11 @@ public class Customer {
     }
 
     public int getHausNr() {
-        return hausNr;
+        return housNr;
     }
 
     public void setHausNr(int hausNr) {
-        this.hausNr = hausNr;
+        this.housNr = hausNr;
     }
 
     public String getPostalCode() {
@@ -116,7 +116,7 @@ public class Customer {
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", street='" + street + '\'' +
-                ", hausNr=" + hausNr +
+                ", hausNr=" + housNr +
                 ", postalCode='" + postalCode + '\'' +
                 ", city='" + city + '\'' +
                 '}';
